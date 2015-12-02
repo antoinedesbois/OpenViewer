@@ -1,13 +1,14 @@
 #ifndef  OBJECT_H
 #define	 OBJECT_H 
 
-#include "GL/glew.h"
-#include <GLM/glm/glm.hpp>
-
 #include "Actor.h"
 #include "BoundingBox.h"
 #include "ShaderProgram.h"
 #include "Animable.h"
+#include "LightingEffects.h"
+
+#include "GL/glew.h"
+#include <GLM/glm/glm.hpp>
 
 #include <vector>
 
@@ -32,10 +33,12 @@ public:
 	// Getters 
 	GLuint getShaderProgramId() { return m_shaderProgram; }
 	std::string getDisplayName() { return m_displayName; }
+	LightingEffects getPostProcesses() { return m_postProcesses; }
 
 	// Setters
 	void assignMaterial(Material* material) { m_material = material; } 
-	void addPostProcess(GLuint aShaderProgram) { m_postProcesses.push_back(aShaderProgram); }
+	void setPostProcesses(LightingEffects aFlag) { m_postProcesses = aFlag; } // TODO : m_postProcesses | flag;// Takes a flag containing all postprocess to be executed
+	void addPostProcess(LightingEffects aFlag){ m_postProcesses | aFlag; }
 	void setAnimation(Animation* animation);
 
 	void updateShader(GLuint& aNewShaderProgram) { m_shaderProgram = aNewShaderProgram; };
@@ -63,7 +66,7 @@ protected :
 	// Object's look characteristics
 
 	GLuint m_shaderProgram; 
-	std::vector<GLuint> m_postProcesses; // This is used for postProcess effects that only applies to certain objects. 
+	LightingEffects m_postProcesses; // Flag of postProcess effects 
 
 	// Object's shape definition variables
 	GLuint m_VBO;

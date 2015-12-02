@@ -7,6 +7,8 @@ GLuint FrameBuffer::m_height = 0;
 FrameBuffer::FrameBuffer()
 {
 	glGenFramebuffers(1, &m_id);
+
+
 }
 
 FrameBuffer::~FrameBuffer()
@@ -19,24 +21,34 @@ FrameBuffer::~FrameBuffer()
 
 void FrameBuffer::bind()
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, m_id); 
+	glBindFramebuffer(GL_FRAMEBUFFER, m_id);
 }
 
 void FrameBuffer::unBind()
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, 0); 
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 
-void FrameBuffer::addBuffer(BufferType bufferType, GLuint attachmentPos, ParameterMap* parameteri /* = nullptr */)
+void FrameBuffer::addBuffer(BufferType bufferType, GLuint attachmentPos, ColorBufferFormats* colorBufferFormats /*= nullptr*/, ParameterMap* parameteri /* = nullptr */)
 {
-	GLuint data; 
+	GLuint data;
 	if (bufferType == BufferType::eColor)
 	{
+		//assert(colorBufferFormats, "To create a colorBuffer, formats must be defined"); 
+
 		// Create Texture (Color buffer)
 		glGenTextures(1, &data);
 		glBindTexture(GL_TEXTURE_2D, data);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, m_width, m_height, 0, GL_RGB, GL_FLOAT, nullptr);
+		glTexImage2D(GL_TEXTURE_2D,
+			0,
+			colorBufferFormats->internalFormat,
+			m_width,
+			m_height,
+			0,
+			colorBufferFormats->format,
+			colorBufferFormats->type,
+			nullptr);
 
 		// Set Texture parameters
 		if (parameteri)
@@ -74,11 +86,11 @@ void FrameBuffer::addBuffer(BufferType bufferType, GLuint attachmentPos, Paramet
 	// Create vector of bufferType if doesn't exist
 	if (m_renderbuffers.find(bufferType) == m_renderbuffers.end())
 	{
-		m_renderbuffers[bufferType] = new RenderBufferVec; 
+		m_renderbuffers[bufferType] = new RenderBufferVec;
 	}
 
 	// add the buffer to the buffermap
-	m_renderbuffers[bufferType]->push_back(data); 
+	m_renderbuffers[bufferType]->push_back(data);
 }
 
 

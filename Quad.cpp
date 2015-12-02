@@ -16,6 +16,11 @@ void Quad::defineVBO()
 		 1.0f, -1.0f,  0.0f,     1.0f, 0.0f, 
 	};
 
+	m_vertices.push_back(Vec3(-1, 1, 0));
+	m_vertices.push_back(Vec3(-1, -1, 0));
+	m_vertices.push_back(Vec3(1, 1, 0));
+	m_vertices.push_back(Vec3(1, -1, 0));
+
 	glGenBuffers(1, &m_VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);

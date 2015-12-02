@@ -5,6 +5,8 @@
 #include "ShaderProgram.h"
 #include "BoundingBox.h"
 
+#include <string>
+
 int Object::objectIndex = 1;
 
 Object::Object(glm::vec3 position, Material* material, GLuint shaderProgram)
@@ -12,9 +14,11 @@ Object::Object(glm::vec3 position, Material* material, GLuint shaderProgram)
 	, m_shaderProgram(shaderProgram)
 	, m_numIndices(0)
 	, m_animation(0)
-	, m_displayName("object" + objectIndex)
+	, m_postProcesses(LightingEffects::eNone)
+	, m_displayName("object" + std::to_string(objectIndex))
 {
 	m_bbox = BoundingBox(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0));
+	++objectIndex;
 }
 
 Object::~Object()

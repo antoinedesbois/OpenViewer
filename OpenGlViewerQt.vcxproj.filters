@@ -23,14 +23,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -49,9 +41,6 @@
     </Filter>
     <Filter Include="Rendering\Shaders">
       <UniqueIdentifier>{d95a8640-68f1-4835-8d43-fcd337a944b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Rendering\Post Process">
-      <UniqueIdentifier>{138a7b4e-7184-4574-ae66-1ba9d04532a6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Actors/Objects">
       <UniqueIdentifier>{303ce930-6319-4354-8613-58e056571d22}</UniqueIdentifier>
@@ -75,14 +64,17 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Rendering\Technique">
+      <UniqueIdentifier>{df5d2eba-fc32-4368-b3a7-8e30b6a35f63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Shaders\Post Processes">
+      <UniqueIdentifier>{138a7b4e-7184-4574-ae66-1ba9d04532a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Shaders\Rendering">
+      <UniqueIdentifier>{d089428a-e370-4ede-b7e7-84de6848e113}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Animable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Viewer.cpp">
       <Filter>Viewer</Filter>
     </ClCompile>
@@ -146,9 +138,6 @@
     <ClCompile Include="viewergl.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Build\x64\Debug\Moc\moc_viewergl.cpp">
       <Filter>Generated Files\Debug_x64</Filter>
     </ClCompile>
@@ -173,17 +162,14 @@
     <ClCompile Include="Build\x64\Release\Moc\moc_AboutDialog.cpp">
       <Filter>Generated Files\Release_x64</Filter>
     </ClCompile>
+    <ClCompile Include="Animable.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SeparableSSS.cpp">
+      <Filter>Rendering\Technique</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Viewer.h">
       <Filter>Viewer</Filter>
     </ClInclude>
@@ -241,6 +227,19 @@
     <ClInclude Include="Build\$(PlatformName)\$(ConfigurationName)\GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="Animable.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Flag.h" />
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="SeparableSSS.h">
+      <Filter>Rendering\Technique</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderMacro.h">
+      <Filter>Rendering\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="LightingEffects.h">
+      <Filter>Rendering\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.ui">
@@ -260,56 +259,50 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\BlinnPhong.fg">
-      <Filter>Rendering\Shaders</Filter>
-    </None>
-    <None Include="Shaders\BlinnPhong.vs">
-      <Filter>Rendering\Shaders</Filter>
-    </None>
-    <None Include="Shaders\BloomHDR.fg">
-      <Filter>Rendering\Shaders</Filter>
-    </None>
-    <None Include="Shaders\BumpColorMaps.fg">
-      <Filter>Rendering\Shaders</Filter>
-    </None>
-    <None Include="Shaders\BumpColorMaps.vs">
-      <Filter>Rendering\Shaders</Filter>
-    </None>
     <None Include="Shaders\Debug.fg">
       <Filter>Rendering\Shaders</Filter>
     </None>
     <None Include="Shaders\Debug.vs">
       <Filter>Rendering\Shaders</Filter>
     </None>
-    <None Include="Shaders\normal.fg">
-      <Filter>Rendering\Shaders</Filter>
+    <None Include="Shaders\AdditiveBlending.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
     </None>
-    <None Include="Shaders\normal.vs">
-      <Filter>Rendering\Shaders</Filter>
+    <None Include="Shaders\basicPPVS.vs">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
     </None>
-    <None Include="Shaders\textureObj.fg">
-      <Filter>Rendering\Shaders</Filter>
+    <None Include="Shaders\GammaCorrect.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
+    </None>
+    <None Include="Shaders\GaussianBlur.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
+    </None>
+    <None Include="Shaders\hdr.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
+    </None>
+    <None Include="Shaders\SSS.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
+    </None>
+    <None Include="Shaders\ApplyPostProcesses.fg">
+      <Filter>Rendering\Shaders\Post Processes</Filter>
+    </None>
+    <None Include="Shaders\BumpColorMaps.vs">
+      <Filter>Rendering\Shaders\Rendering</Filter>
+    </None>
+    <None Include="Shaders\BumpColorMaps.fg">
+      <Filter>Rendering\Shaders\Rendering</Filter>
+    </None>
+    <None Include="Shaders\BlinnPhong.vs">
+      <Filter>Rendering\Shaders\Rendering</Filter>
+    </None>
+    <None Include="Shaders\BlinnPhong.fg">
+      <Filter>Rendering\Shaders\Rendering</Filter>
     </None>
     <None Include="Shaders\textureObj.vs">
       <Filter>Rendering\Shaders</Filter>
     </None>
-    <None Include="Shaders\AdditiveBlending.fg">
-      <Filter>Rendering\Post Process</Filter>
-    </None>
-    <None Include="Shaders\basicPPVS.vs">
-      <Filter>Rendering\Post Process</Filter>
-    </None>
-    <None Include="Shaders\GammaCorrect.fg">
-      <Filter>Rendering\Post Process</Filter>
-    </None>
-    <None Include="Shaders\GaussianBlur.fg">
-      <Filter>Rendering\Post Process</Filter>
-    </None>
-    <None Include="Shaders\hdr.fg">
-      <Filter>Rendering\Post Process</Filter>
-    </None>
-    <None Include="Shaders\SSS.fg">
-      <Filter>Rendering\Post Process</Filter>
+    <None Include="Shaders\textureObj.fg">
+      <Filter>Rendering\Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

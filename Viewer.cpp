@@ -126,7 +126,6 @@ void Viewer::setupViewport()
 	// Set GL options
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
-	glEnable(GL_STENCIL_TEST);
 }
 
 /*
@@ -145,7 +144,7 @@ Viewer::Viewer(int width, int height)
 	
 
 	m_camera = new Camera(&glm::vec3(0.0f, 1.0f, 0.0f), &glm::vec3(0.0f, 0.0f, 50.0f), &glm::vec3(0, 0, 0));
-	m_scenes.push_back(new DefaultTestLevel()); 
+	m_scenes.push_back(new SSSSTestLevel()); 
 	//m_listener = new ConsoleListener();
 
 	//start animation once scene is ready

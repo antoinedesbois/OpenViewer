@@ -183,6 +183,7 @@
     <ClCompile Include="ObjModelLoader.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Quad.cpp" />
+    <ClCompile Include="SeparableSSS.cpp" />
     <ClCompile Include="SSSSTestLevel.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DefaultTestLevel.h" />
+    <ClInclude Include="Flag.h" />
     <ClInclude Include="FrameBuffer.h" />
     <CustomBuild Include="ImportDialog.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing ImportDialog.h...</Message>
@@ -222,6 +224,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LightingEffects.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="ModelContainer.h" />
     <ClInclude Include="ModelLoader.h" />
@@ -229,6 +232,8 @@
     <ClInclude Include="ObjModelLoader.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Quad.h" />
+    <ClInclude Include="SeparableSSS.h" />
+    <ClInclude Include="ShaderMacro.h" />
     <ClInclude Include="SSSSTestLevel.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShaderProgram.h" />
@@ -288,10 +293,10 @@ endlocal
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\AdditiveBlending.fg" />
+    <None Include="Shaders\ApplyPostProcesses.fg" />
     <None Include="Shaders\basicPPVS.vs" />
     <None Include="Shaders\BlinnPhong.fg" />
     <None Include="Shaders\BlinnPhong.vs" />
-    <None Include="Shaders\BloomHDR.fg" />
     <None Include="Shaders\BumpColorMaps.fg" />
     <None Include="Shaders\BumpColorMaps.vs" />
     <None Include="Shaders\Debug.fg" />
@@ -299,8 +304,6 @@ endlocal
     <None Include="Shaders\GammaCorrect.fg" />
     <None Include="Shaders\GaussianBlur.fg" />
     <None Include="Shaders\hdr.fg" />
-    <None Include="Shaders\normal.fg" />
-    <None Include="Shaders\normal.vs" />
     <None Include="Shaders\SSS.fg" />
     <None Include="Shaders\textureObj.fg" />
     <None Include="Shaders\textureObj.vs" />

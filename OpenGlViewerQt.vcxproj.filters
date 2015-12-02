@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Viewer">
+      <UniqueIdentifier>{5305c0ca-1772-48b6-a5d8-fa28934b53e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene and levels">
+      <UniqueIdentifier>{03e89a92-8b33-47ed-9d35-58d36e2e5463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{2d010457-c00a-4abf-be8b-9a3754685879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Resources">
+      <UniqueIdentifier>{fc5bc5bd-9011-4aa1-a87f-ff79f6202fb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Shaders">
+      <UniqueIdentifier>{d95a8640-68f1-4835-8d43-fcd337a944b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Post Process">
+      <UniqueIdentifier>{138a7b4e-7184-4574-ae66-1ba9d04532a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actors/Objects">
+      <UniqueIdentifier>{303ce930-6319-4354-8613-58e056571d22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actors/Objects\Predefined Objects">
+      <UniqueIdentifier>{aea7331d-a92b-4117-8fe7-09a289c90183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actors/Objects\Model Loader">
+      <UniqueIdentifier>{93a9d482-5f94-47c2-aa6e-01140a798e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{360afff6-10b9-4964-9ff0-9f91850287d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\Debug_x64">
+      <UniqueIdentifier>{7602f217-5d7b-4cf3-9550-e384c328f284}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release_x64">
+      <UniqueIdentifier>{531b23a9-eff4-4f5f-b473-bef72dfc74b7}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewer.cpp">
+      <Filter>Viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewerState.cpp">
+      <Filter>Viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultTestLevel.cpp">
+      <Filter>Scene and levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene and levels</Filter>
+    </ClCompile>
+    <ClCompile Include="SSSSTestLevel.cpp">
+      <Filter>Scene and levels</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>Rendering\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Rendering\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Actors/Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Actors/Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Actors/Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Actors/Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Actors/Objects\Predefined Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Actors/Objects\Predefined Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelContainer.cpp">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelLoader.cpp">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjModelLoader.cpp">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectInformationWidget.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="viewergl.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Debug\Moc\moc_viewergl.cpp">
+      <Filter>Generated Files\Debug_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Release\Moc\moc_viewergl.cpp">
+      <Filter>Generated Files\Release_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Debug\Moc\moc_mainwindow.cpp">
+      <Filter>Generated Files\Debug_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Release\Moc\moc_mainwindow.cpp">
+      <Filter>Generated Files\Release_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Debug\Moc\moc_ImportDialog.cpp">
+      <Filter>Generated Files\Debug_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Release\Moc\moc_ImportDialog.cpp">
+      <Filter>Generated Files\Release_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Debug\Moc\moc_AboutDialog.cpp">
+      <Filter>Generated Files\Debug_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Release\Moc\moc_AboutDialog.cpp">
+      <Filter>Generated Files\Release_x64</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Viewer.h">
+      <Filter>Viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewerState.h">
+      <Filter>Viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultTestLevel.h">
+      <Filter>Scene and levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene and levels</Filter>
+    </ClInclude>
+    <ClInclude Include="SSSSTestLevel.h">
+      <Filter>Scene and levels</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>Rendering\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Rendering\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Rendering\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Actors/Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Actors/Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Actors/Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Actors/Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Actors/Objects\Predefined Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Actors/Objects\Predefined Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelLoader.h">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelContainer.h">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjModelLoader.h">
+      <Filter>Actors/Objects\Model Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInformationWidget.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Build\$(PlatformName)\$(ConfigurationName)\GeneratedFiles\ui_mainwindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AboutDialog.h">
+      <Filter>UI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ImportDialog.h">
+      <Filter>UI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.h">
+      <Filter>UI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="viewergl.h">
+      <Filter>UI</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\BlinnPhong.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\BlinnPhong.vs">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\BloomHDR.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\BumpColorMaps.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\BumpColorMaps.vs">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\Debug.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\Debug.vs">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\normal.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\normal.vs">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\textureObj.fg">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\textureObj.vs">
+      <Filter>Rendering\Shaders</Filter>
+    </None>
+    <None Include="Shaders\AdditiveBlending.fg">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+    <None Include="Shaders\basicPPVS.vs">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+    <None Include="Shaders\GammaCorrect.fg">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+    <None Include="Shaders\GaussianBlur.fg">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+    <None Include="Shaders\hdr.fg">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+    <None Include="Shaders\SSS.fg">
+      <Filter>Rendering\Post Process</Filter>
+    </None>
+  </ItemGroup>
+</Project>

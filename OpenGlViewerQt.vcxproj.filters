@@ -168,6 +168,12 @@
     <ClCompile Include="SeparableSSS.cpp">
       <Filter>Rendering\Technique</Filter>
     </ClCompile>
+    <ClCompile Include="Build\x64\Debug\Moc\moc_ObjectInformationWidget.cpp">
+      <Filter>Generated Files\Debug_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="Build\x64\Release\Moc\moc_ObjectInformationWidget.cpp">
+      <Filter>Generated Files\Release_x64</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Viewer.h">
@@ -221,9 +227,6 @@
     <ClInclude Include="ObjModelLoader.h">
       <Filter>Actors/Objects\Model Loader</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectInformationWidget.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="Build\$(PlatformName)\$(ConfigurationName)\GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -255,6 +258,9 @@
       <Filter>UI</Filter>
     </CustomBuild>
     <CustomBuild Include="viewergl.h">
+      <Filter>UI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ObjectInformationWidget.h">
       <Filter>UI</Filter>
     </CustomBuild>
   </ItemGroup>

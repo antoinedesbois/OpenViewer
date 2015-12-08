@@ -163,3 +163,58 @@ void Scene::removeObject(Object* obj)
 			m_objects[i]->setVisible(false);
 	}
 }
+
+ObjectInformation Scene::getObjectBasicInformation(const std::string& objectName)
+{
+	ObjectInformation info;
+	for each (Object* obj in m_objects)
+	{
+		if (obj->getDisplayName() == objectName)
+		{
+			info.position = obj->getPosition();
+			info.verticeNumber = obj->getVerticeNumber();
+			info.shaderProgramStr = getShaderName(obj->getShaderProgramId());
+			info.bbox = obj->getBoundingBox();
+			info.postProcesses = obj->getPostProcesses();
+		}
+	}
+
+	return info;
+}
+
+std::vector<std::string> Scene::getPostProcessList()
+{
+	std::vector<std::string> pplist;
+	pplist.push_back("HDR");
+	pplist.push_back("Bloom");
+	pplist.push_back("SSSS");
+	return pplist;
+}
+
+std::string Scene::getShaderName(GLuint shaderId)
+{
+	for each (auto sp in m_shaderPrograms)
+	{
+		if (sp.second->getId() == shaderId)
+			return sp.first;
+	}
+
+	assert(false);
+	return std::string("None");
+}
+
+void Scene::changeObjectShader(std::string objectName, std::string shaderName)
+{
+	//get shader Id
+	ShaderProgram* sp = m_shaderPrograms[shaderName];
+
+	for (int i = 0; i < m_objects.size(); ++i)
+	{
+		if (m_objects[i]->getDisplayName() == objectName)
+		{
+			GLuint id = sp->getId();
+			m_objects[i]->updateShader(id);
+			break;
+		}
+	}
+}

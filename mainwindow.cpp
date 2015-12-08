@@ -47,6 +47,7 @@ void MainWindow::on_actionObject_View_triggered()
 {
 	if (ui->actionObject_View->isChecked())
 	{
+		m_objectInfoWidget->refreshObjectList();
 		m_objectInfoWidget->show();
 		ui->ViewerWidget->resize(m_objectInfoWidget->DEFAULT_POSITION_X, 1080);
 	}

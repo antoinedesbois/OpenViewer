@@ -4,6 +4,7 @@
 #include "Types.h"
 #include "Camera.h"
 #include "ModelContainer.h"
+#include "ObjectInformation.h"
 
 #include <gl/glew.h>
 #include "glm/glm/glm.hpp"
@@ -64,6 +65,12 @@ public :
 	void removePendingBackgrounds();
 
 	void removeObject(Object* obj);
+
+	ObjectInformation getObjectBasicInformation(const std::string& objectName);
+	std::vector<std::string> getPostProcessList();
+	std::string getShaderName(GLuint shaderId);
+
+	void changeObjectShader(std::string objectName, std::string shaderName);
 
 protected:
 	// Methods

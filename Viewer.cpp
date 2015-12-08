@@ -47,16 +47,6 @@ void Viewer::handleKeyReleaseEvent(QKeyEvent* e)
 	m_state->handleKeyReleaseEvent(e);
 }
 
-//Viewer::mouse_button_callback_impl(int button, int action, int mods)
-//{
-	//m_state->handleMouseClick(window, button, action);
-//}
-//
-//void Viewer::scroll_callback_impl(GLFWwindow* window, double xoffset, double yoffset)
-//{
-//	m_camera->zoom(yoffset);
-//}
-
 // Viewer class
 // According to how the viewerstate is currently made, shouldn't this be in viewerstate?
 void Viewer::moveCameraBetweenFrame(double deltaTime)
@@ -79,42 +69,11 @@ void Viewer::moveCameraBetweenFrame(double deltaTime)
 	}
 }
 
-//void Viewer::setCallbacks()
-//{
-//	glfwSetErrorCallback(error_callback);
-//	glfwSetKeyCallback(m_window, key_callback);
-//	glfwSetWindowSizeCallback(m_window, window_size_callback);
-//	glfwSetCursorPosCallback(m_window, mouse_callback);
-//	glfwSetMouseButtonCallback(m_window, mouse_button_callback);
-//}
-
 /*
 * @brief : Manage window's creation and getting important monitor settings. 
 */
 void Viewer::createWindow()
 {
-	//GLFWmonitor* monitor = glfwGetPrimaryMonitor(); 
-	//const GLFWvidmode* mode = glfwGetVideoMode(monitor); 
-
-	//// Window's size
-	//m_width = mode->width;
-	//m_height = mode->height; 
-
-	//// Window's hints
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE) //Mac OSX
-
-	//m_window = glfwCreateWindow(m_width, m_height, "Opengl4 Viewer", nullptr, nullptr);
-	//if (!m_window)
-	//{
-	//	throw std::runtime_error("Failed to create a GLFW window");
-	//	glfwTerminate();
-	//	exit(EXIT_FAILURE);
-	//}
-
-	//glfwMakeContextCurrent(m_window);
 	FrameBuffer::setDimensions(m_state->getWidth(), m_state->getHeight());
 }
 
@@ -144,7 +103,7 @@ Viewer::Viewer(int width, int height)
 	
 
 	m_camera = new Camera(&glm::vec3(0.0f, 1.0f, 0.0f), &glm::vec3(0.0f, 0.0f, 50.0f), &glm::vec3(0, 0, 0));
-	m_scenes.push_back(new SSSSTestLevel()); 
+	m_scenes.push_back(new DefaultTestLevel()); 
 	//m_listener = new ConsoleListener();
 
 	//start animation once scene is ready
@@ -249,6 +208,11 @@ void Viewer::removeBackground(const Vec3& color)
 	
 	if (lastSelectedObject)
 		m_currentScene->addBackgroundToBeRemoved(lastSelectedObject, color);
+}
+
+ObjectInformation Viewer::objectBasicInformation(const std::string& objectName)
+{
+	return m_currentScene->getObjectBasicInformation(objectName);
 }
 
 void Viewer::moveCamera(double xoffset, double yoffset)

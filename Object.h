@@ -34,6 +34,8 @@ public:
 	GLuint getShaderProgramId() { return m_shaderProgram; }
 	std::string getDisplayName() { return m_displayName; }
 	LightingEffects getPostProcesses() { return m_postProcesses; }
+	unsigned int getVerticeNumber() { return m_vertices.size(); }
+	BoundingBox getBoundingBox() { return m_bbox; }
 
 	// Setters
 	void assignMaterial(Material* material) { m_material = material; } 
@@ -41,7 +43,7 @@ public:
 	void addPostProcess(LightingEffects aFlag){ m_postProcesses | aFlag; }
 	void setAnimation(Animation* animation);
 
-	void updateShader(GLuint& aNewShaderProgram) { m_shaderProgram = aNewShaderProgram; };
+	void updateShader(GLuint aNewShaderProgram) { m_shaderProgram = aNewShaderProgram; };
 
 	virtual void computeBoundingBox(); 
 	virtual bool intersect(Ray r, double& t0, double& t1); 

@@ -172,36 +172,39 @@ void DefaultTestLevel::levelSetup()
 
 	Object* sphere1 = new Sphere(glm::vec3(-7, 0, 0), m_materials["default"], 2, 40, 40, m_shaderPrograms["BlinnPhong"]->getId());
 	sphere1->setDisplayName("sphere1");
-	m_objects.push_back(sphere1);
+	//m_objects.push_back(sphere1);
 
 	Object* sphere2 = new Sphere(glm::vec3(7, 0, 0), m_materials["blue"], 2, 40, 40, m_shaderPrograms["BlinnPhong"]->getId());
 	sphere2->setDisplayName("sphere2");
 	m_objects.push_back(sphere2);
 
-	//ModelContainer* model1 = ModelLoader::loadModel("./HeadModel/head_tri_non_smooth.obj", m_materials["default"], m_shaderPrograms["BumpColorMaps"]->getId(), std::vector<Vec3>());
-	////Head rotation animation
-	//Animation* anim = new Animation();
-	//for (int i = 0; i < 3600; ++i)
-	//{
-	//	Matrix4x4 m1;
-	//	m1 = glm::rotate(m1, i * float(2*3.1415)/3600, Vec3(0, 1, 0));
-	//	Frame f(m1);
-	//	anim->addFrame(i, f);
-	//}
+	//ModelContainer* model1 = ModelLoader::loadModel("./Models/Car/test2.obj", m_materials["blue"], m_shaderPrograms["BlinnPhong"]->getId(), std::vector<Vec3>());
 
-	//model1->setAnimation(anim);
-	//model1->smoothNormals();
+	//ModelContainer* model1 = ModelLoader::loadModel("./Models/Myriam/myriam.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), std::vector<Vec3>());
+	ModelContainer* model1 = ModelLoader::loadModel("./Models/HeadModel/head_tri_non_smooth.obj", m_materials["default"], m_shaderPrograms["BumpColorMaps"]->getId(), std::vector<Vec3>());
+	//Head rotation animation
+	Animation* anim = new Animation();
+	for (int i = 0; i < 3600; ++i)
+	{
+		Matrix4x4 m1;
+		m1 = glm::rotate(m1, i * float(2*3.1415)/3600, Vec3(0, 1, 0));
+		Frame f(m1);
+		anim->addFrame(i, f);
+	}
 
-	//m_objects.push_back(model1);
+	model1->setAnimation(anim);
+	model1->smoothNormals();
 
-	//std::vector<Vec3> backgroundColors;
-	//backgroundColors.push_back(Vec3(46, 46, 49));
+	m_objects.push_back(model1);
 
-	//ModelContainer* model2 = ModelLoader::loadModel("./banane/banane3.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), backgroundColors);
-	//
+	std::vector<Vec3> backgroundColors;
+	backgroundColors.push_back(Vec3(46, 46, 49));
+
+	//ModelContainer* model2 = ModelLoader::loadModel("./Models/banane/banane3.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), backgroundColors);
+	
 	//model2->removeIsolatedPatch(20);
-	////model2->removeBackground(backgroundColors);
-	////model2->smoothNormals();
+	//model2->removeBackground(backgroundColors);
+	//model2->smoothNormals();
 
 	//m_objects.push_back(model2);
 

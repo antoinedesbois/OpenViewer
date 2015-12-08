@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Viewer.h"
 #include "viewergl.h"
+#include "ObjectInformationWidget.h"
 
 #include <qdialog.h>
 #include <qlabel.h>

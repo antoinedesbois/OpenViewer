@@ -56,7 +56,7 @@ public :
 	void removeSelectedObject();
 	void removeBackground(const Vec3& color);
 
-
+	ObjectInformation objectBasicInformation(const std::string& objectName);
 
 private : 
 

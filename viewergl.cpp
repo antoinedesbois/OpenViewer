@@ -5,7 +5,8 @@
 #include <iostream>
 
 ViewerGL::ViewerGL(QWidget* parent):
-    QGLWidget(parent)
+    QGLWidget(parent),
+	m_viewer(0)
 {
 	QTimer *timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
@@ -26,7 +27,8 @@ ViewerGL::~ViewerGL()
 
 void ViewerGL::initializeGL()
 {
-	m_viewer = new Viewer(width(), height());
+	if (!m_viewer)
+		m_viewer = new Viewer(width(), height());
 }
 
 void ViewerGL::paintGL()

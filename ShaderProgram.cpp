@@ -66,16 +66,19 @@ m_programId(glCreateProgram())
 	assert(vertexShaderName.size() > 0, "Attempted to create a Shader program without valid vertex shader filename");
 	assert(vertexShaderName.size() > 0, "Attempted to create a Shader program without valid fragment shader filename ");
 
-	GLuint vertexShader, fragmentShader;
-	assert(compileShader(GL_VERTEX_SHADER, vertexShaderName, vertexShader), "Failed to compile vertex shader, see logs for details.");
-	assert(compileShader(GL_FRAGMENT_SHADER, fragmentShaderName, fragmentShader), "Failed to compile fragment shader, see logs for details.");
+	GLuint vertexShader = 0, fragmentShader = 0;
+	bool c1 = compileShader(GL_VERTEX_SHADER, vertexShaderName, vertexShader);
+	bool c2 = compileShader(GL_FRAGMENT_SHADER, fragmentShaderName, fragmentShader);
+
+	assert(c1 && c2);
 
 	//Attach shaders
 	glAttachShader(m_programId, vertexShader);
 	glAttachShader(m_programId, fragmentShader);
 
-	assert(link(), "Shader linking to ShaderProgram failed. See logs for more details.");
-
+	bool isLinked = link();
+	assert(isLinked);
+	
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 }

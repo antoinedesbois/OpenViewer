@@ -43,7 +43,7 @@ public :
 	void loop();
 
 	// Getters
-	glm::mat4 getViewMatrix(){ return m_viewMatrix; }
+	glm::mat4 getViewMatrix(){ return getCurrentScene()->getViewMatrix(); }
 	glm::mat4 getProjectionMatrix(){ return m_projectionMatrix; }
 	Camera* getCamera(){ return m_camera; }
 	Scene*  getCurrentScene() { return m_currentScene; }

@@ -5,10 +5,15 @@
 
 ObjectInformationWidget::ObjectInformationWidget(QWidget* parent, Viewer* viewer) :
 	QWidget(parent),
-	m_viewer(viewer)
+	m_viewer(viewer),
+	m_selectedItem(0)
 {
 	move(DEFAULT_POSITION_X, DEFAULT_POSITION_Y);
 	resize(DEFAULT_SIZE_X, 600);
+
+	QTimer *timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(refreshObjectInformation()));
+	timer->start(100);
 
 	//build the list of objects
 	m_listObject = new QListWidget(this);
@@ -154,18 +159,37 @@ void ObjectInformationWidget::itemSelected(QListWidgetItem * item)
 
 	m_shaderComboBox->setCurrentIndex(index);
 
-	m_postProcessesComboBox;
-
+	m_selectedItem = item;
 
 }
 
 void ObjectInformationWidget::refreshObjectList()
 {
+	m_selectedItem = 0;
 	m_listObject->clear();
 
 	std::vector<std::string> listObjNames = getSceneObjectsName();
 	for each (std::string objName in listObjNames)
 	{
 		m_listObject->addItem(QString(objName.c_str()));
+	}
+
+}
+
+void ObjectInformationWidget::refreshObjectInformation()
+{
+	if (m_selectedItem)
+	{
+		std::string objectName = m_selectedItem->text().toUtf8();
+		ObjectInformation info = m_viewer->objectBasicInformation(objectName);
+
+		std::string pos = "(" + std::to_string((int)info.position.x) + ", " + std::to_string((int)info.position.y) + ", " + std::to_string((int)info.position.z) + " )";
+		m_position->setText(pos.c_str());
+
+		std::string pMinPos = "(" + std::to_string((int)info.bbox.m_pMin.x) + ", " + std::to_string((int)info.bbox.m_pMin.y) + ", " + std::to_string((int)info.bbox.m_pMin.z) + " )";
+		m_boundingBoxPMin->setText(pMinPos.c_str());
+
+		std::string pMaxPos = "(" + std::to_string((int)info.bbox.m_pMax.x) + ", " + std::to_string((int)info.bbox.m_pMax.y) + ", " + std::to_string((int)info.bbox.m_pMax.z) + " )";
+		m_boundingBoxPMax->setText(pMaxPos.c_str());
 	}
 }

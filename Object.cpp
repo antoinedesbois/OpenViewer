@@ -85,7 +85,7 @@ void Object::computeBoundingBox()
 
 bool Object::intersect(Ray r, double& t0, double& t1)
 {
-	auto inverseModel = glm::inverse(Actor::getModelMatrix());
+	auto inverseModel = glm::inverse(getModelMatrix(0));
 	glm::vec3 dir(
 		inverseModel[0][0] * r.m_d.x + inverseModel[1][0] * r.m_d.y + inverseModel[2][0] * r.m_d.z + inverseModel[3][0] * 0,
 		inverseModel[0][1] * r.m_d.x + inverseModel[1][1] * r.m_d.y + inverseModel[2][1] * r.m_d.z + inverseModel[3][1] * 0,

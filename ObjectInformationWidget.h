@@ -30,6 +30,7 @@ public slots:
 	void itemSelected(QListWidgetItem* item);
 	void shaderChanged(int item);
 	void refreshObjectList();
+	void refreshObjectInformation();
 
 signals:
 	void currentIndexChanged(int item);
@@ -62,6 +63,7 @@ private:
 	CheckBoxList *m_postProcessesComboBox;
 	//post processes --> qlist with checkable items
 
+	QListWidgetItem * m_selectedItem;
 };
 
 #endif //__OBJECT_INFORMATION_WIDGET_H__

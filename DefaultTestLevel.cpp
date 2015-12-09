@@ -169,45 +169,93 @@ void DefaultTestLevel::createMaterials()
 
 void DefaultTestLevel::levelSetup()
 {
+	//---------------------------------------------------------------------------------------------
+	//------------------------------------------- Demo1 -------------------------------------------
+	//---------------------------------------------------------------------------------------------
 
-	Object* sphere1 = new Sphere(glm::vec3(-7, 0, 0), m_materials["default"], 2, 40, 40, m_shaderPrograms["BlinnPhong"]->getId());
-	sphere1->setDisplayName("sphere1");
-	//m_objects.push_back(sphere1);
+	//Smooth vs not smooth
+	ModelContainer* head_not_smooth = 
+		ModelLoader::loadModel("./Models/HeadModel/head_tri_non_smooth.obj", 
+			m_materials["default"], 
+			m_shaderPrograms["BumpColorMaps"]->getId(), 
+			std::vector<Vec3>());
 
-	Object* sphere2 = new Sphere(glm::vec3(7, 0, 0), m_materials["blue"], 2, 40, 40, m_shaderPrograms["BlinnPhong"]->getId());
-	sphere2->setDisplayName("sphere2");
-	m_objects.push_back(sphere2);
+	head_not_smooth->setDisplayName("Head not smooth");
+	head_not_smooth->translate(Vec3(10, 0, 0));
+	m_objects.push_back(head_not_smooth);
 
-	//ModelContainer* model1 = ModelLoader::loadModel("./Models/Car/test2.obj", m_materials["blue"], m_shaderPrograms["BlinnPhong"]->getId(), std::vector<Vec3>());
+	ModelContainer* head_smooth =
+		ModelLoader::loadModel("./Models/HeadModel/head_tri_non_smooth.obj",
+		m_materials["default"],
+		m_shaderPrograms["BumpColorMaps"]->getId(),
+		std::vector<Vec3>());
 
-	//ModelContainer* model1 = ModelLoader::loadModel("./Models/Myriam/myriam.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), std::vector<Vec3>());
-	ModelContainer* model1 = ModelLoader::loadModel("./Models/HeadModel/head_tri_non_smooth.obj", m_materials["default"], m_shaderPrograms["BumpColorMaps"]->getId(), std::vector<Vec3>());
-	//Head rotation animation
-	Animation* anim = new Animation();
-	for (int i = 0; i < 3600; ++i)
-	{
-		Matrix4x4 m1;
-		m1 = glm::rotate(m1, i * float(2*3.1415)/3600, Vec3(0, 1, 0));
-		Frame f(m1);
-		anim->addFrame(i, f);
-	}
+	head_smooth->setDisplayName("Head smooth");
+	head_smooth->smoothNormals();
+	m_objects.push_back(head_smooth);
 
-	model1->setAnimation(anim);
-	model1->smoothNormals();
+	//---------------------------------------------------------------------------------------------
+	//------------------------------------------- Demo2 -------------------------------------------
+	//---------------------------------------------------------------------------------------------
+	//ModelContainer* head_smooth =
+	//	ModelLoader::loadModel("./Models/HeadModel/head_tri_non_smooth.obj",
+	//	m_materials["default"],
+	//	m_shaderPrograms["BumpColorMaps"]->getId(),
+	//	std::vector<Vec3>());
 
-	m_objects.push_back(model1);
+	//head_smooth->setDisplayName("Head smooth");
+	//head_smooth->smoothNormals();
 
-	std::vector<Vec3> backgroundColors;
-	backgroundColors.push_back(Vec3(46, 46, 49));
+	////Head rotation animation
+	//Animation* anim = new Animation();
+	//for (int i = 0; i < 3600; ++i)
+	//{
+	//	Matrix4x4 m1;
+	//	m1 = glm::rotate(m1, i * float(2*3.1415)/3600, Vec3(0, 1, 0));
+	//	Frame f(m1);
+	//	anim->addFrame(i, f);
+	//}
 
-	//ModelContainer* model2 = ModelLoader::loadModel("./Models/banane/banane3.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), backgroundColors);
+	//anim->setLoopBack(true);
+	//head_smooth->setAnimation(anim);
+	//head_smooth->smoothNormals();
+
+	//m_objects.push_back(head_smooth);
+
+
+	//---------------------------------------------------------------------------------------------
+	//------------------------------------------- Demo3 -------------------------------------------
+	//---------------------------------------------------------------------------------------------
 	
-	//model2->removeIsolatedPatch(20);
-	//model2->removeBackground(backgroundColors);
-	//model2->smoothNormals();
+	//ModelContainer* myrHead = ModelLoader::loadModel("./Models/Myriam/myriam.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), std::vector<Vec3>());
+	//m_objects.push_back(myrHead);
+	//myrHead->setDisplayName("Myriam head");
+	
+	
+	//---------------------------------------------------------------------------------------------
+	//------------------------------------------- Demo4 -------------------------------------------
+	//---------------------------------------------------------------------------------------------
+	
+	//std::vector<Vec3> backgroundColors;
+	//backgroundColors.push_back(Vec3(46, 46, 49));
 
-	//m_objects.push_back(model2);
+	//ModelContainer* bananeModel = ModelLoader::loadModel("./Models/banane/banane3.obj", m_materials["default"], m_shaderPrograms["texturedObj"]->getId(), backgroundColors);
 
+	//bananeModel->setDisplayName("Myriam head");
+	//bananeModel->removeIsolatedPatch(20);
+	//bananeModel->smoothNormals();
+
+	//m_objects.push_back(bananeModel);
+
+	
+	//---------------------------------------------------------------------------------------------
+	//------------------------------------------- Demo5 -------------------------------------------
+	//---------------------------------------------------------------------------------------------
+	
+	//ModelContainer* carModel = ModelLoader::loadModel("./Models/Car/test2.obj", m_materials["blue"], m_shaderPrograms["BlinnPhong"]->getId(), std::vector<Vec3>());
+	//carModel->setDisplayName("Car model");
+	//m_objects.push_back(carModel);
+	
 }
 
 void DefaultTestLevel::lightSetup()
@@ -216,12 +264,13 @@ void DefaultTestLevel::lightSetup()
 	attenuationProp.m_constant = 1.0f;
 	attenuationProp.m_linear = 0.02f;
 	attenuationProp.m_quadratic = 0.0005f;
-
-	Light* light1 = new Light(glm::vec3(0, 10, 0), m_materials["defaultLight"], attenuationProp, m_shaderPrograms["BlinnPhong"]->getId());
+	
+	Light* light1 = new Light(glm::vec3(0, 10, 10), m_materials["defaultLight"], attenuationProp, m_shaderPrograms["BlinnPhong"]->getId());
 	m_lights.push_back(light1);
 
 	Light* light2 = new Light(glm::vec3(-30, 40, 0), m_materials["defaultLight"], attenuationProp, m_shaderPrograms["BlinnPhong"]->getId());
 	m_lights.push_back(light2);
+
 }
 
 void DefaultTestLevel::buffersSetup()
